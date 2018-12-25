@@ -1,0 +1,20 @@
+# Jinja mapping for httpd
+
+#'grains.filter_by'= Look up the given grain in a given dictionary for the current OS and return the result
+
+
+{% set web = salt ['grains.filter_by']({
+  'RedHat': {
+      'server' : 'httpd',
+      'server_conf': '/etc/httpd/conf/httpd.conf',
+      'server_conf_source': 'salt:///httpd-jinja/files/rh_server.conf',
+      'service': 'httpd',
+  },
+  'Debian': {
+      'server': 'apache2',
+      'server_conf': '/etc/apache2/apache2.conf',
+      'server_conf_source': 'salt://apache2/files/deb_server.conf',
+      'service': 'apache2',
+
+  },
+}) %}
