@@ -1,1 +1,1 @@
-# httpd-jinja
+# apache2-exercise
